@@ -40,14 +40,19 @@ class App extends Component {
 		const index = clone.indexOf(item);
 		clone[index].value++;
 		// console.log("this", clone);
-
 		this.setState({ counters: clone });
 	};
+	handelerResetAll = () => {
+		const counters = this.state.counters.map(item =>{item.value = 0;
+			return item;})
+		// console.log(counters);
+		this.setState({counters})
+	}
 	render() {
 
 		return (
 			<React.Fragment>
-				<Navbar />
+				<Navbar counter={this.state.counters.filter(c => c.value > 0).length}/>
 				<div main="container">
 					<Counters
 						counters = {this.state.counters}
@@ -55,6 +60,7 @@ class App extends Component {
 						onDecrement={this.handelDecrement}
 						onReset={this.handelReset}
 						onDelete={this.handlerDelete}
+						onResetAll={this.handelerResetAll}
 					/>
 				</div>
 			</React.Fragment>

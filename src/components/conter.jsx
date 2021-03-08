@@ -27,13 +27,13 @@ class Counter extends Component {
 			onIncrement,
 			onDecrement,
 		} = this.props;
-		console.log(this.props);
+		// console.log(this.props);
 		return (
 			<React.Fragment>
 				<div className="container">
 					{/* <h4>{this.props.item.id}</h4> */}
-					<div className="row align-item-start">
-						<div className="col">
+					<div className="row ">
+						<div className="col-1 p-3">
 							<span
 								className={this.formatClassesAttribute()}
 							>
